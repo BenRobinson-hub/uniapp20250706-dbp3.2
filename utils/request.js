@@ -74,7 +74,8 @@ function baseRequest(url, method, data, {
 	// 410020 您已被禁止登录，请联系管理员
 	return new Promise((reslove, reject) => {
 		uni.request({
-			url: Url + '/api/' + url,
+			// url: Url + '/api/' + url,
+			url: Url + '/' + url,
 			method: method || 'GET',
 			header: header,
 			data: data || {},
@@ -113,8 +114,10 @@ function baseRequest(url, method, data, {
 					uni.setStorageSync('authIng', true)
 				} else if(res.data.status == 403){
 					reject(res.data);
-				} else
+				} else{
+					console.log(url+"接口错误，可能是json格式有误")
 					reject(res.data.msg || '系统错误');
+					}
 			},
 			fail: (msg) => {
 				let data = {

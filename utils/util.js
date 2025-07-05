@@ -830,7 +830,8 @@ export default {
 					title: '图片上传中',
 				});
 				uni.uploadFile({
-					url: HTTP_REQUEST_URL + '/api/' + uploadUrl,
+					// url: HTTP_REQUEST_URL + '/api/' + uploadUrl,
+					url: HTTP_REQUEST_URL + '/' + uploadUrl,
 					filePath: res.tempFilePaths[0],
 					fileType: fileType,
 					name: inputName,
@@ -960,7 +961,8 @@ export default {
 
 		function uploadImg(filePath) {
 			uni.uploadFile({
-				url: HTTP_REQUEST_URL + '/api/' + uploadUrl,
+				// url: HTTP_REQUEST_URL + '/api/' + uploadUrl,
+				url: HTTP_REQUEST_URL + '/' + uploadUrl,
 				filePath,
 				fileType: fileType,
 				name: inputName,
@@ -1073,7 +1075,8 @@ export default {
 	uploadImgs(uploadUrl, filePath, successCallback, errorCallback) {
 		let that = this;
 		uni.uploadFile({
-			url: HTTP_REQUEST_URL + '/api/' + uploadUrl,
+			// url: HTTP_REQUEST_URL + '/api/' + uploadUrl,
+			url: HTTP_REQUEST_URL + '/' + uploadUrl,
 			filePath: filePath,
 			fileType: 'image',
 			name: 'pics',

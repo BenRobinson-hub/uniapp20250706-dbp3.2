@@ -1,7 +1,7 @@
 {
-    "name" : "crmeb-multi",
+    "name" : "dbp3.2_pro_uniapp",
     "appid" : "__UNI__0A10130",
-    "description" : "crmeb多门店",
+    "description" : "乐来悦好",
     "versionName" : "3.2.0",
     "versionCode" : 320,
     "transformPx" : false,
@@ -177,7 +177,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wx6ca9ac1a01f617a1",
+        "appid" : "wxe3035c3e13ee7cb1",
         "setting" : {
             "urlCheck" : false,
             "minified" : true,
