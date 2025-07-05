@@ -235,6 +235,7 @@ export function ordeRefundReason() {
  * @param string cartId
  */
 export function orderConfirm(cartId, news, addressId, shippingType, store_id, couponId, luckRecordId) {
+	if(couponId == 'undefined'){couponId = 0}
 	return request.post('order/confirm', {
 		cartId,
 		'new': news,

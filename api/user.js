@@ -796,8 +796,8 @@ export function userApply(id) {
  * 供应商记录接口
  *
  */
-export function recordList() {
-	return request.get("user/apply/record");
+export function recordList(class_1) {
+	return request.get("user/apply/record?class_1=" + class_1);
 }
 
 /**

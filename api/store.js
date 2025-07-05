@@ -130,6 +130,9 @@ export function diyProductApi() {
  * @param object data
  */
 export function getProductslist(data) {
+		if(data.cid === undefined){data.cid = 0}
+		if(data.brand_id === 0 || data.brand_id == undefined || data.brand_id == 'undefined'){data.brand_id = ''}
+		if(data.promotions_id === undefined || data.promotions_id === '' || data.promotions_id === null){data.promotions_id = 0}
 	return request.get('products', data, {
 		noAuth: true
 	});
