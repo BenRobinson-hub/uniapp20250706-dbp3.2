@@ -1998,7 +1998,66 @@
 					}
 				}
 			]
-		}
+		},
+		{
+				      "root": "pages/flexibleWork/employer",
+				      "name": "employer",
+				      "pages": [
+				        {
+				          "path": "index",
+				          "style": {
+		                "navigationStyle": "custom",
+		                "navigationBarTitleText": "雇主入驻申请" }
+				        },
+						{
+						  "path": "detailView",
+						  "style": { "navigationBarTitleText": "编辑雇主信息" }
+						},
+				        {
+				          "path": "record",
+				          "style": { "navigationBarTitleText": "入驻申请记录" }
+				        },
+				        {
+				          "path": "state",
+				          "style": { "navigationBarTitleText": "入驻审核状态" }
+				        }
+				      ]
+				    },
+				    {
+				      "root": "pages/flexibleWork/job",
+				      "name": "job",
+				      "pages": [
+				        {
+				          "path": "posting",
+				          "style": { 
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "发布职位" }
+				        },
+				        {
+				          "path": "record",
+				          "style": { "navigationBarTitleText": "职位申请记录" }
+				        },
+				        {
+				          "path": "state",
+				          "style": { "navigationBarTitleText": "职位审核状态" }
+				        },
+				        {
+				          "path": "list",
+				          "style": { "navigationBarTitleText": "职位列表" }
+				        },
+				        {
+				          "path": "detailView",
+				          "style": {
+								"navigationStyle": "custom",
+								 "navigationBarTitleText": "编辑职位详情"
+							}
+				        },
+				        {
+				          "path": "detail",
+				          "style": { "navigationBarTitleText": "职位详情" }
+				        }
+				      ]
+				    }
 	],
 	"tabBar": {
 		"color": "#282828",

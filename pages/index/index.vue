@@ -39,6 +39,9 @@
 					<!-- 客户服务 -->
 					<customerService v-if="item.name == 'customerService'" :dataConfig="item">
 					</customerService>
+					<!-- 新增：灵活用工模块入口组件 -->
+					<flexibleWork v-if="item.name == 'flexibleWork'" :dataConfig="item">
+					</flexibleWork>
 					<!-- 商品列表 -->
 					<goodList ref="goodLists" v-if="item.name == 'goodList'" :dataConfig="item"></goodList>
 					<guide v-if="item.name == 'guide'" :dataConfig="item"></guide>
@@ -153,6 +156,8 @@
 	import headerSerch from './components/headerSerch';
 	import swipers from './components/swipers';
 	import coupon from './components/coupon';
+	// 新增：引入灵活用工入口组件
+	import flexibleWork from './components/flexibleWork.vue';
 	import articleList from './components/articleList';
 	import bargain from './components/bargain';
 	import blankPage from './components/blankPage';
@@ -241,6 +246,7 @@
 			headerSerch,
 			swipers,
 			coupon,
+			flexibleWork,
 			articleList,
 			bargain,
 			blankPage,

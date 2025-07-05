@@ -36,6 +36,7 @@
 		},
 		data(){
 			return{
+				class_1:0,
 				list:[],
         homeHide: false
 			}
@@ -50,7 +51,8 @@
 				return obj[val]
 			},
 		},
-		onLoad(){
+		onLoad(options){
+			this.class_1 = options.class_1 || 0;
 			this.getList();
 		},
     onPageScroll() {
@@ -58,7 +60,7 @@
 		},
 		methods:{
 			getList(){
-				recordList().then(res=>{
+				recordList(this.class_1).then(res=>{
 					this.list = res.data;
 				}).catch(err=>{
 					return this.$util.Tips({

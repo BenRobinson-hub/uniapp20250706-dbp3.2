@@ -9,12 +9,13 @@
 			<view class="rule-btn w-124 flex-center fs-24 text--w111-fff" :style="{top: 100 + sysHeight + 'px'}"
 				@tap="goRecord">申请记录</view>
 		</view>
+		<text class = "typename" >{{classArr[class_1].typename}}入驻</text>
 		<view class="bg-v-gradient pl-20 pr-20 pb-24" :style="{minHeight: mainHeight + 'px'}">
 			<view class="bg--w111-fff rd-24rpx content-box">
 				<view class="fs-30 fw-500 lh-42rpx">请填写以下信息</view>
-				<view class="cell flex-between-center mt-64">
-					<view class="fs-28 lh-40rpx">供应商名称</view>
-					<input type="text" v-model="form.system_name" placeholder="请输入代理商名称" placeholder-class="text--w111-ccc" class="fs-28 text-right" />
+				<view class="cell flex-between-center mt-64" v-if="class_1 != 4">
+				<view class="fs-28 lh-40rpx">{{classArr[class_1].system_name}}</view>
+				<input type="text" v-model="form.system_name" placeholder="请输入单位名称" placeholder-class="text--w111-ccc" class="fs-28 text-right" />
 				</view>
 				<view class="cell flex-between-center mt-64">
 					<view class="fs-28 lh-40rpx">用户姓名</view>
@@ -50,17 +51,17 @@
 				<view class="flex-y-center mt-32">
 					<text class="iconfont fs-30" :class="isSelect ? 'icon-a-ic_CompleteSelect' : 'icon-ic_unselect'" @tap="proviceSelect"></text>
 					<text class="fs-24 text--w111-999 pl-12">已阅读并同意</text>
-					<text class="font-red fs-24" @tap="getAgreement">《供应商协议》</text>
+					<text class="font-red fs-24" @tap="getAgreement">《{{classArr[class_1].typename}}协议》</text>
 				</view>
 				<view class="w-full h-88 rd-44rpx flex-center text--w111-fff fs-28 mt-48" 
 					:class="isSelectStar ? 'bg-red' : 'bg-disabled'" @tap="submitSupply">提交申请</view>
 			</view>
 		</view>
-		<Verify @success="success" captchaType="clickWord" :imgSize="{ width: '330px', height: '155px' }"
+		<Verify @success="success" captchaType="blockPuzzle" :imgSize="{ width: '330px', height: '155px' }"
 			ref="verify"></Verify>
 		<tui-modal :show="showModal" maskClosable custom @cancel="hideModal">
 			<view class="tui-modal-custom" @touchmove.stop.prevent>
-				<view class="fs-32 fw-500 lh-44rpx text-center">供应商协议</view>
+				<view class="fs-32 fw-500 lh-44rpx text-center">{{classArr[class_1].typename}}协议</view>
 				<view class="fs-28 text--w111-666 lh-44rpx mt-24">
 					<scroll-view scroll-y="true" style="max-height: 700rpx">
 						<jyf-parser :html="supplierAgreement" ref="article" :tag-style="tagStyle"></jyf-parser>
@@ -94,6 +95,7 @@
 					name:'',
 					phone:'',
 					captcha:'',
+					class_1: 0,
 					images:[]
 				},
 				canvasWidth: "",
@@ -102,11 +104,36 @@
 				isSelect: false,
 				keyCode:'',
 				id:0,
+				class_1:0,
 				showModal: false,
 				supplierAgreement:'',
 				tagStyle:{
 					img: 'width:100%;display:block;',
 				},
+				classArr:[
+					{
+						system_name:"供应商名称",
+						typename:"供应商",
+						type:"supplier_1"
+					},{
+						system_name:"雇主名称",
+						typename:"雇主",
+						type:"employer_1"
+					},{
+						system_name:"门店名称",
+						typename:"门店",
+						type:"store_1"
+					},{
+						system_name:"云店名称",
+						typename:"云店",
+						type:"store_2"
+					},{
+						system_name:"指定分销",
+						typename:"分销",
+						type:"distribution_1"
+						
+					}
+				],
         homeHide: false
 			}
 		},
@@ -132,11 +159,11 @@
 		computed:{
 			...mapGetters(['isLogin']),
 			isSelectStar(){
-				if(this.form.system_name && this.form.name && this.form.phone && this.form.captcha && this.form.images.length ) return true
+				if((this.form.system_name || this.form.class_1 == 3) && this.form.name && this.form.phone && this.form.captcha && this.form.images.length ) {return true}
 			},
 			headerBg(){
 				return {
-					backgroundImage: 'url('+ HTTP_REQUEST_URL + '/statics/images/supplier/apply_header.png'+')'
+					backgroundImage: 'url('+ HTTP_REQUEST_URL + '/statics/images/supplier/apply_header_1.png'+')'
 				}
 			},
 			mainHeight(){
@@ -145,7 +172,10 @@
 			}
 		},
 		onLoad(options) {
+			console.log(options);
 			this.id = options.id || 0;
+			this.class_1 = options.class_1 || 0;
+			this.form.class_1 = options.class_1 || 0;
 			if(options.id){
 				this.getInfo();
 			}
@@ -174,7 +204,7 @@
 				});
 			},
 			code(){
-				if (!this.form.phone) return this.$util.Tips({
+				if (!this.form.phone) return that.$util.Tips({
 					title: '请填写手机号码'
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(this.form.phone)) return this.$util.Tips({
@@ -208,7 +238,7 @@
 						phone: that.form.phone,
 						type: 'supplier',
 						key: that.keyCode,
-						captchaType: 'clickWord',
+						captchaType: 'blockPuzzle',
 						captchaVerification: data.captchaVerification
 					})
 					.then(res => {
@@ -264,7 +294,7 @@
 			},
 			goRecord(){
 				uni.navigateTo({
-					url: '/pages/users/supplier/record'
+					url: '/pages/users/supplier/record?class_1='+this.class_1
 				})
 			},
 			getAgreement(){
@@ -335,4 +365,5 @@
 		border-radius: 0 0 32rpx 32rpx;
 		background-color: #fff;
 	}
+	.typename{color:#fff;font-size:50rpx;position:absolute;top:200rpx;left:30rpx;font-weight:bold;}
 </style>
