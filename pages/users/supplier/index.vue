@@ -159,7 +159,7 @@
 		computed:{
 			...mapGetters(['isLogin']),
 			isSelectStar(){
-				if((this.form.system_name || this.form.class_1 == 3) && this.form.name && this.form.phone && this.form.captcha && this.form.images.length ) {return true}
+				if((this.form.system_name || this.form.class_1 == 3 || this.form.class_1 == 4) && this.form.name && this.form.phone && this.form.captcha && this.form.images.length ) {return true}
 			},
 			headerBg(){
 				return {
