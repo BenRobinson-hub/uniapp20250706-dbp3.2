@@ -81,6 +81,8 @@ export function getStoreBrand(data) {
  * @param int data
  */
 export function getList( data) {
+	if(data.latitude ==''){data.latitude='0.00'}
+	if(data.longitude ==''){data.longitude='0.00'}
 	return request.get('store/list',data, {
 	noAuth: true
 	

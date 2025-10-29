@@ -1,7 +1,7 @@
 {
-    "name" : "dbp3.2_pro_uniapp",
+    "name" : "qimai3.2_pro_uniapp",
     "appid" : "__UNI__528262C",
-    "description" : "乐来悦好",
+    "description" : "炁脉调理",
     "versionName" : "3.2.0",
     "versionCode" : 320,
     "transformPx" : false,
@@ -177,7 +177,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wxe3035c3e13ee7cb1",
+        "appid" : "wx84bd2feac67b0217",
         "setting" : {
             "urlCheck" : false,
             "minified" : true,

@@ -309,6 +309,8 @@ export function getSearchRecommendApi(type) {
  * @returns {*}
  */
 export function storeListApi(data) {
+	if(data.latitude ==''){data.latitude='0.00'}
+	if(data.longitude ==''){data.longitude='0.00'}
 	return request.get("store_list", data, {
 		noAuth: true
 	});

@@ -17,7 +17,8 @@ import request from "@/utils/request.js";
 export function getCartCounts(numType,storeId) {
 	return request.get("cart/count", {
 		numType: numType === undefined ? 0 : numType,
-		store_id:storeId
+		store_id:storeId || 0
+		
 	});
 }
 

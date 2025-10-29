@@ -9,6 +9,7 @@
 // +----------------------------------------------------------------------
 
 import {
+	WX_ACCOUNT_ID,
 	HTTP_REQUEST_URL,
 	HEADER,
 	TOKENNAME
@@ -66,6 +67,13 @@ function baseRequest(url, method, data, {
 			});
 		}
 	}
+	if(noAuth){
+	  if (url.indexOf("?") != -1) {
+	   url = url + "&acc=" + WX_ACCOUNT_ID;
+	  } else{
+	   url = url + "?acc=" + WX_ACCOUNT_ID;
+	  }
+	 }
 	if (store.state.app.token) header[TOKENNAME] = 'Bearer ' + store.state.app.token;
     // 410000 请登录
 	// 410001 登录已过期,请重新登录
