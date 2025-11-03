@@ -264,6 +264,7 @@ export function getCouponsOrderPrice(price, data) {
  * 
  */
 export function orderCreate(key, data) {
+  data.bargainId=data.bargainId || 0;
 	return request.post('order/create/' + key, data);
 }
 
