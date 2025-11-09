@@ -12,7 +12,7 @@
 			</view>
 			<view class="sub_btn" @click="loginBtn">立即登录</view>
 		</view>
-			<Verify @success="success" :captchaType="blockPuzzle" :imgSize="{ width: '330px', height: '155px' }"
+			<Verify @success="success" :captchaType="'blockPuzzle'" :imgSize="{ width: '330px', height: '155px' }"
 						ref="verify"></Verify>
 	</view>
 </template>

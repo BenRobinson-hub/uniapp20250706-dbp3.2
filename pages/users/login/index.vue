@@ -75,7 +75,7 @@
 				与<text class="main-color" @click.stop="privacy('privacy')">《隐私协议》</text>
 			</checkbox-group>
 		</view>
-		<Verify @success="success" :captchaType="blockPuzzle" :imgSize="{ width: '330px', height: '155px' }"
+		<Verify @success="success" :captchaType="'blockPuzzle'" :imgSize="{ width: '330px', height: '155px' }"
 			ref="verify"></Verify>
 	</view>
 </template>

@@ -42,7 +42,7 @@
 				<view class="w-full h-88 rd-44rpx flex-center text--w111-fff fs-28" :class="isSelectStar ? 'bg-red' : 'bg-disabled'" @tap="submitSupply">提交申请</view>
 			</view>
 		</view>
-		<Verify @success="success" :captchaType="blockPuzzle" :imgSize="{ width: '330px', height: '155px' }"
+		<Verify @success="success" :captchaType="'blockPuzzle'" :imgSize="{ width: '330px', height: '155px' }"
 					ref="verify"></Verify>
 		<tui-modal :show="showModal" maskClosable custom @cancel="hideModal">
 			<view class="tui-modal-custom">
