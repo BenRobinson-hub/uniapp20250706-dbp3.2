@@ -48,7 +48,7 @@
 			</view>
 			<view class="text-center fs-32 text--w111-999 mt-32" @click="back">立即登录</view>
 		</view>
-		<Verify @success="success" captchaType="clickWord" :imgSize="{ width: '330px', height: '155px' }"
+		<Verify @success="success" :captchaType="blockPuzzle" :imgSize="{ width: '330px', height: '155px' }"
 			ref="verify"></Verify>
 	</view>
 </template>
@@ -158,7 +158,7 @@
 						phone: that.account,
 						type: that.type, 
 						key: that.keyCode,
-						captchaType: 'clickWord',
+						captchaType: 'blockPuzzle',
 						captchaVerification: data.captchaVerification,
 					})
 					.then(res => {

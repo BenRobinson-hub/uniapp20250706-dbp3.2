@@ -50,8 +50,8 @@
 				与<text class="main-color" @click.stop="privacy('privacy')">《隐私协议》</text>
 			</checkbox-group>
 		</view>
-		<Verify @success="success" captchaType="clickWord" :imgSize="{ width: '330px', height: '155px' }"
-			ref="verify"></Verify>
+			<Verify @success="success" :captchaType="blockPuzzle" :imgSize="{ width: '330px', height: '155px' }"
+						ref="verify"></Verify>
 		<editUserModal :isShow="isShow" @closeEdit="closeEdit" @editSuccess="editSuccess">
 		</editUserModal>
 		<!-- #ifdef MP -->
@@ -307,7 +307,7 @@
 						phone: that.phone,
 						type: 'reset',
 						key: res.data.key,
-						captchaType: 'clickWord',
+						captchaType: 'blockPuzzle',
 						captchaVerification: data.captchaVerification
 					}
 					registerVerify(obj)

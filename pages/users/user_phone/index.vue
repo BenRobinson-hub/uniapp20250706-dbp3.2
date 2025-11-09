@@ -16,7 +16,7 @@
 				<button form-type="submit" class="confirmBnt bg-color">确认绑定</button>
 			</view>
 		</form>
-		<Verify @success="success"  captchaType="clickWord"
+		<Verify @success="success"  :captchaType="blockPuzzle"
 			:imgSize="{ width: '330px', height: '155px' }" ref="verify"></Verify>
 		<!-- #ifdef MP -->
 		<authorize v-if="isShowAuth" @authColse="authColse" @onLoadFun="onLoadFun"></authorize>
@@ -176,7 +176,7 @@
 						phone: that.phone,
 						type: 'reset', 
 						key: res.data.key,
-						captchaType: 'clickWord',
+						captchaType: 'blockPuzzle',
 						captchaVerification: data.captchaVerification,
 					}
 					).then(res => {

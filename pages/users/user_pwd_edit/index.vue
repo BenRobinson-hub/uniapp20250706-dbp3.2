@@ -20,7 +20,7 @@
 				<button form-type="submit" class="confirmBnt bg-color">确认修改</button>
 			</form>
 		</view>
-		<Verify @success="success" captchaType="clickWord" :imgSize="{ width: '330px', height: '155px' }"
+		<Verify @success="success" :captchaType="blockPuzzle" :imgSize="{ width: '330px', height: '155px' }"
 			ref="verify"></Verify>
 		<!-- #ifdef MP -->
 		<authorize v-if="isShowAuth" @authColse="authColse" @onLoadFun="onLoadFun"></authorize>
@@ -150,7 +150,7 @@
 						phone: that.userInfo.phone,
 						type: 'reset', 
 						key: that.key,
-						captchaType: 'clickWord',
+						captchaType: 'blockPuzzle',
 						captchaVerification: data.captchaVerification,
 					})
 					.then(res => {

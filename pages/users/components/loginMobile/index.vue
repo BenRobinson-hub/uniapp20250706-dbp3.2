@@ -12,8 +12,8 @@
 			</view>
 			<view class="sub_btn" @click="loginBtn">立即登录</view>
 		</view>
-		<Verify @success="success" captchaType="clickWord" :imgSize="{ width: '330px', height: '155px' }"
-			ref="verify"></Verify>
+			<Verify @success="success" :captchaType="blockPuzzle" :imgSize="{ width: '330px', height: '155px' }"
+						ref="verify"></Verify>
 	</view>
 </template>
 
@@ -67,7 +67,7 @@
 					registerVerify({
 						phone: that.account,
 						key: res.data.key,
-						captchaType: 'clickWord',
+						captchaType: 'blockPuzzle',
 						captchaVerification: data.captchaVerification
 					}).then(res => {
 						that.$util.Tips({

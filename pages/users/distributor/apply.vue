@@ -42,7 +42,8 @@
 				<view class="w-full h-88 rd-44rpx flex-center text--w111-fff fs-28" :class="isSelectStar ? 'bg-red' : 'bg-disabled'" @tap="submitSupply">提交申请</view>
 			</view>
 		</view>
-		<Verify @success="success" captchaType="clickWord" :imgSize="{ width: '330px', height: '155px' }" ref="verify"></Verify>
+		<Verify @success="success" :captchaType="blockPuzzle" :imgSize="{ width: '330px', height: '155px' }"
+					ref="verify"></Verify>
 		<tui-modal :show="showModal" maskClosable custom @cancel="hideModal">
 			<view class="tui-modal-custom">
 				<view class="fs-32 fw-500 lh-44rpx text-center">分销说明</view>
@@ -145,7 +146,7 @@ export default {
 				phone: that.form.phone,
 				type: 'agent',
 				key: that.keyCode,
-				captchaType: 'clickWord',
+				captchaType: 'blockPuzzle',
 				captchaVerification: data.captchaVerification
 			})
 				.then((res) => {
