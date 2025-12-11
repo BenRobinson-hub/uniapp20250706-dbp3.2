@@ -97,7 +97,7 @@
 					'font-style': fontStyle,
 					'font-style': fontWeight,
 					'font-size': `${this.dataConfig.titleNumber.val * 2}rpx`,
-          'color': this.dataConfig.titleColor.color[0].item,
+                    'color': this.dataConfig.titleColor.color[0].item,
 				};
 			},
 			buttonStyle() {
