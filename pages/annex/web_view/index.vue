@@ -18,6 +18,7 @@
 			}
 		},
 		onLoad(option) {
+			console.log(option);
 			//this.url = decodeURIComponent(option.url);
 			if (option.q) {
 				this.url = decodeURIComponent(option.q + "&_SESSION_=" + $store.state.app.token)+"&vconsole=1&debug=1";
