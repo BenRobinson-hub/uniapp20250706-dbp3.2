@@ -14,7 +14,7 @@ module.exports = {
 	// #ifdef MP || APP-PLUS
 	// 请求域名 格式： https://您的域名
 	// HTTP_REQUEST_URL: `https://您的域名`,
-	WX_ACCOUNT_ID:'59448f77-6949-489d-8747-b36f001e9c54',
+	WX_ACCOUNT_ID:'68e9c998-e93b-4093-ab7f-b3b200f44ef9',
 	HTTP_REQUEST_URL: `https://qimai.naturecare.top/qimai_biz`,
 	// 长连接 格式：wss://您的域名 
 	// VUE_APP_WS_URL: `wss://您的域名/ws`,
