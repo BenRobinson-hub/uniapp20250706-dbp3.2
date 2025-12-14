@@ -583,7 +583,7 @@
 				window.open('http://beian.miit.gov.cn/');
 				// #endif
 				// #ifdef MP
-				uni.navigateTo({
+				uni.reLaunch({
 					url: `/pages/annex/web_view/index?url=https://beian.miit.gov.cn/`
 				});
 				// #endif

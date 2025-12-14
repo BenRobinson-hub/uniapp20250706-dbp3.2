@@ -638,7 +638,7 @@ export default {
 							this.$util.JumpPath(url);
 							// #endif
 							// #ifndef H5
-							uni.navigateTo({
+							uni.reLaunch({
 								url: `/pages/annex/web_view/index?url=${url}`
 							});
 							// #endif

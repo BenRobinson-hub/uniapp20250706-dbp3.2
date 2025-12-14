@@ -279,7 +279,7 @@ export default {
 				location.href = url;
 				// #endif
 				// #ifdef MP || APP-PLUS
-				uni.navigateTo({
+				uni.reLaunch({
 					url: `/pages/annex/web_view/index?url=${url}`
 				});
 				// #endif
@@ -1050,7 +1050,7 @@ export default {
 					plus.runtime.openURL(data.customer_url)
 					// #endif
 				} else {
-					uni.navigateTo({
+					uni.reLaunch({
 						url: `/pages/annex/web_view/index?url=${urls}`
 					});
 				}

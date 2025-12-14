@@ -24,12 +24,12 @@
 				this.url = decodeURIComponent(option.q + "&_SESSION_=" + $store.state.app.token)+"&vconsole=1&debug=1";
 			}
 			if (option.url) {
-				if (decodeURIComponent(option.url).indexOf("?") != -1) {
-					this.url = decodeURIComponent(option.url + "&_SESSION_=" + $store.state.app.token)+"&vconsole=1&debug=1";
-				} else {
-					this.url = decodeURIComponent(option.url + "?_SESSION_=" + $store.state.app.token)+"&vconsole=1&debug=1";
-				}
-				//this.url="https://qimai.naturecare.top/qimai_biz/newPhone.aspx?_SESSION_="+$store.state.app.token+"&url="+option.url
+				// if (decodeURIComponent(option.url).indexOf("?") != -1) {
+				// 	this.url = decodeURIComponent(option.url + "&_SESSION_=" + $store.state.app.token)+"&vconsole=1&debug=1";
+				// } else {
+				// 	this.url = decodeURIComponent(option.url + "?_SESSION_=" + $store.state.app.token)+"&vconsole=1&debug=1";
+				// }
+				this.url="https://qimai.naturecare.top/qimai_biz/newPhone.aspx?_SESSION_="+$store.state.app.token+"&url="+option.url
 			}
 			console.log(this.url);
 			try {

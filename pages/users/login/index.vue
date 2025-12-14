@@ -172,7 +172,7 @@
 				location.href = url
 				// #endif
 				// #ifdef MP || APP-PLUS
-				uni.navigateTo({
+				uni.reLaunch({
 					url: `/pages/annex/web_view/index?url=${url}`
 				});
 				// #endif
