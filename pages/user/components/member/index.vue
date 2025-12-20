@@ -89,16 +89,17 @@ export default {
 
 <template>
 	<view>
-		<!-- #ifdef MP || APP-PLUS -->
+		<!-- #ifdef MP  -->
 		<topBar v-if="memberData.style != 5" :styleType="memberData.style" :isScrolling="isScrolling"></topBar>
 		<!-- #endif -->
-		<template1 v-if="memberData.style == 1" :perShowType="memberData.per_show_type" :userInfo="userInfo" :property="property"></template1>
-		<template2 v-if="memberData.style == 2" :perShowType="memberData.per_show_type" :userInfo="userInfo" :property="property"></template2>
-		<template3 v-if="memberData.style == 3" :perShowType="memberData.per_show_type" :userInfo="userInfo" :property="property"></template3>
-		<template4 v-if="memberData.style == 4" :perShowType="memberData.per_show_type" :userInfo="userInfo" :commission="orderAdminData.commission"></template4>
+		<template1 v-if="memberData.style == 1" :perShowType="memberData.per_show_type" :memberData="memberData" :userInfo="userInfo" :property="property"></template1>
+		<template2 v-if="memberData.style == 2" :perShowType="memberData.per_show_type" :memberData="memberData" :userInfo="userInfo" :property="property"></template2>
+		<template3 v-if="memberData.style == 3" :perShowType="memberData.per_show_type" :memberData="memberData" :userInfo="userInfo" :property="property"></template3>
+		<template4 v-if="memberData.style == 4" :perShowType="memberData.per_show_type" :memberData="memberData" :userInfo="userInfo" :commission="orderAdminData.commission"></template4>
 		<template5
 			v-if="memberData.style == 5"
 			:perShowType="memberData.per_show_type"
+			:memberData="memberData"
 			:userInfo="userInfo"
 			:commission="orderAdminData.commission"
 			:isScrolling="isScrolling"

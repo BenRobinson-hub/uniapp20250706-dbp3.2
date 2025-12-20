@@ -285,7 +285,17 @@ export default {
 			uni.stopPullDownRefresh();
 		}, 1000);
 	},
+	onNavigationBarButtonTap(e) {
+		if (e.index === 0) { // 第一个按钮
+			this.gosetting();
+		}
+	},
 	methods: {
+		gosetting() {
+			uni.navigateTo({
+				url: '/pages/diy/url_setting/index' // 替换为实际主页路径
+			});
+		},
 		getCartNum: function() {
 			if(!this.isLogin){
 				return false

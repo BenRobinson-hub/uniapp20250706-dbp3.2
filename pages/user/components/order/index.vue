@@ -46,7 +46,7 @@ export default {
 </script>
 
 <template>
-	<view>
+	<view v-if="orderData.is_show != 0">
 		<template1 v-if="orderData.style == 1" :orderMenu="orderMenu" :notPayOrder="orderAdminData.not_pay_order" :commission="orderAdminData.commission"></template1>
 		<template2 v-if="orderData.style == 2 || orderData.style == 3" :notPayOrder="orderAdminData.not_pay_order" :orderStyle="orderData.style" :orderMenu="orderMenu"></template2>
 	</view>

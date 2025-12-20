@@ -7,6 +7,10 @@ export default {
 			type: Object,
 			default: () => {}
 		},
+		memberData: {
+			type: Object,
+			default: () => {}
+		},
 		property: {
 			type: Array,
 			default: () => []
@@ -46,9 +50,9 @@ export default {
 					<view class="phone" v-else>{{ perShowType ? 'ID：' + userInfo.uid : userInfo.phone }}</view>
 				</view>
 			</view>
-			<text class="iconfont icon-a-ic_QRcode fs-40" @click="tapQrCode"><text class="tips">会员码</text></text>
-			<text class="iconfont icon-a-ic_setup1 fs-40 mx-34" @click="intoPage('/pages/users/user_set/index')"></text>
-			<view class="iconfont icon-ic_message3 fs-40" @click="intoPage('/pages/users/message_center/index')">
+			<text v-if="memberData.QrCode_show != 0" class="iconfont icon-a-ic_QRcode fs-40" @click="tapQrCode"><text class="tips">会员码</text></text>
+			<text v-if="memberData.user_set_show != 0" class="iconfont icon-a-ic_setup1 fs-40 mx-34" @click="intoPage('/pages/users/user_set/index')"></text>
+			<view v-if="memberData.message_show != 0" class="iconfont icon-ic_message3 fs-40" @click="intoPage('/pages/users/message_center/index')">
 				<uni-badge v-if="userInfo.service_num" absolute="rightTop" :custom-style="{background: 'var(--view-theme)',top:'-56rpx'}" :text="userInfo.service_num"></uni-badge>
 			</view>
 		</view>
