@@ -619,6 +619,8 @@ export function settleTable(data) {
  * @param {Object} data
  */
 export function homeStoreList(data) {
+  data.latitude = data.latitude || 0;
+  data.longitude = data.longitude || 0;
 	return request.get("home/store_list",data,{noAuth: true});
 }
 
