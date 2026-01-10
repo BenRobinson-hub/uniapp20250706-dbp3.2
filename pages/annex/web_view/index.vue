@@ -3,6 +3,9 @@
 </template>
 
 <script>
+	import {	
+		HTTP_REQUEST_URL
+	} from '@/config/app';
 	import $store from "@/store";
 	export default {
 		data() {
@@ -18,7 +21,6 @@
 			}
 		},
 		onLoad(option) {
-			console.log(option);
 			//this.url = decodeURIComponent(option.url);
 			if (option.q) {
 				this.url = decodeURIComponent(option.q + "&_SESSION_=" + $store.state.app.token)+"&vconsole=1&debug=1";
@@ -29,9 +31,8 @@
 				// } else {
 				// 	this.url = decodeURIComponent(option.url + "?_SESSION_=" + $store.state.app.token)+"&vconsole=1&debug=1";
 				// }
-				this.url="https://qimai.naturecare.top/qimai_biz/newPhone.aspx?_SESSION_="+$store.state.app.token+"&url="+option.url
+				this.url=HTTP_REQUEST_URL+"/newPhone.aspx?_SESSION_="+$store.state.app.token+"&url="+option.url
 			}
-			console.log(this.url);
 			try {
 				const res = uni.getSystemInfoSync();
 				this.windowW = res.windowWidth;
